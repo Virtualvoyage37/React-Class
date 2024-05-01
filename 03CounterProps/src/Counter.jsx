@@ -10,18 +10,20 @@ const Counter = () => {
 
   const [count, setCount] = useState(0);
 
-  // function AddValue() {
-  //   setCount(count + 1);
-  // }
-  // function RemoveValue() {
-  //   setCount(count - 1);
-  // }
+  function AddValue() {
+    setCount(count + 1);
+  }
+  function RemoveValue() {
+    setCount(count - 1);
+  }
 
   return (
     <>
-      <div>Counter : {count}</div>
-      <button onClick={()=>setCount(count +1)}>Add</button>
-      <button onClick={()=> setCount(count -1)}>Remove</button>
+      <h1>Counter : {count} Heloo Bhai Kya Haal</h1>
+      <footer>About Us : {count} </footer>
+      <button onClick={()=>setCount(count +1)}>Add :{count}</button>
+      <button onClick={()=> setCount(count -1)}>Remove :{count}</button>
+      <footer>Footer : {count}</footer>
     </>
   );
 };
