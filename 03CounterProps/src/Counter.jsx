@@ -19,7 +19,7 @@ const Counter = () => {
 
   return (
     <>
-      <h1>Counter : {count} Heloo Bhai Kya Haal</h1>
+      <h1>Counter : {count}  </h1>
       <footer>About Us : {count} </footer>
       <button onClick={()=>setCount(count +1)}>Add :{count}</button>
       <button onClick={()=> setCount(count -1)}>Remove :{count}</button>
