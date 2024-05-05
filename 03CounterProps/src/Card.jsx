@@ -1,7 +1,9 @@
 import React from "react";
 
 const Card = (props) => {
-  console.log(props, "prop");
+  console.log(props.name, "prop");
+
+
   return (
     <section>
       <div className="card">
@@ -11,8 +13,8 @@ const Card = (props) => {
             <b>{props.name}</b>
           </h4>
           {/* Architect & Engineer */}
-          {/* <p>{props.work}</p> */}
-          <p>{props.work == props ? "software engineer" : props.work}</p>
+          <p>{props.work || "software engineer"}</p>
+          <p>{props.work ? props.work : "software engineer"}</p>
         </div>
       </div>
     </section>

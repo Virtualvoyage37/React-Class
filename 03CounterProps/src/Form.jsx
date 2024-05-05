@@ -1,36 +1,74 @@
 import React, { useState } from "react";
 
+const Data = {
+  fname: "",
+  lname: "",
+  age: 0,
+  email: "",
+  phone: 0,
+  address: "",
+  // gander: "",
+};
+
 const Form = () => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [data, setData] = useState({});
+  const [form, setForm] = useState(Data);
+  const [dataTable, setDataTable] = useState([])
+  // const num = 5;
+  // console.log(1 +num);
+  // console.log(num+ 1);
 
   function Submit() {
-    setData({ ...data, firstName: name, LastName: lastName });
+
+    setDataTable([...dataTable,form])
   }
+  function HandleChange(e) {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  }
+  console.log(dataTable, "form");
 
   return (
     <div>
       <h1>Form </h1>
       <input
         type="text"
-        onChange={(e) => setName(e.target.value)}
-        name="name"
-        id=""
-        placeholder="Name"
+        onChange={(event) => HandleChange(event)}
+        name="fname"
+        id="name"
+        placeholder="Enter First Name"
+        value={form.fname}
       />
       <input
         type="text"
-        onChange={(e) => setLastName(e.target.value)}
-        name="lastname"
-        id=""
-        placeholder="Last Name"
+        onChange={(event) => HandleChange(event)}
+        name="lname"
+        id="lname"
+        placeholder="Enter Last Name"
       />
-      <button onClick={Submit}>Submit</button>
 
-      <h1>
-        name: {data.firstName} lastname: {data.LastName}
-      </h1>
+      <input
+        type="number"
+        onChange={(event) => HandleChange(event)}
+        name="age"
+        id="age"
+        placeholder="Age"
+      />
+      <input
+        type="email"
+        onChange={(event) => HandleChange(event)}
+        name="email"
+        id="email"
+        placeholder="Enter Email"
+      />
+      <input
+        type="number"
+        onChange={(event) => HandleChange(event)}
+        name="phone"
+        id="phone"
+        placeholder="Enter Number"
+      />
+
+      <button onClick={Submit}>Submit</button>
     </div>
   );
 };

@@ -2,20 +2,20 @@ import Card from "./Card";
 import Counter from "./Counter";
 import Form from "./Form";
 import UpdateData from "./UpdateData";
-import "./App.css"
+import "./App.css";
 
 function App() {
   return (
     <div>
       {/* <Counter /> */}
-      {/* <Form />  */}
+      <Form />
       <div className="card-box">
-      <Card name="demo" work={"content Rwiter"} />
-      <Card name="deepak"/>
-      <Card name="jay"/>
-      <Card name="raju"/>
+        {/* <Card name="demo" work={"content Rwiter"} />
+        <Card name="deepak" />
+        <Card name />
+        <Card name="raju" /> */}
+        {/* <UpdateData /> */}
       </div>
-      {/* <UpdateData /> */}
     </div>
   );
 }
