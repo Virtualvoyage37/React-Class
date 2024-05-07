@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 
-const Data = {
-  fname: "",
-  lname: "",
-  age: 0,
-  email: "",
-  phone: 0,
-  address: "",
-  // gander: "",
-};
+// const Data = {
+//   fname: "",
+//   lname: "",
+//   age: 0,
+//   email: "",
+//   phone: 0,
+//   address: "",
+// };
 
-const Form = () => {
-  const [form, setForm] = useState(Data);
-  const [dataTable, setDataTable] = useState([])
+const Form = ({ form, HandleChange, Submit }) => {
+  // const { form, HandleChange, Submit } = props;
+
+  // console.log(Submit,"Props");
+
+  // const [form, setForm] = useState(Data);
+  // const [dataTable, setDataTable] = useState([])
   // const num = 5;
   // console.log(1 +num);
   // console.log(num+ 1);
-
-  function Submit() {
-
-    setDataTable([...dataTable,form])
-  }
-  function HandleChange(e) {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  }
-  console.log(dataTable, "form");
+  // function Submit() {
+  //   setDataTable([...dataTable,form])
+  // }
+  // function HandleChange(e) {
+  //   const { name, value } = e.target;
+  //   setForm({ ...form, [name]: value });
+  // }
 
   return (
     <div>
@@ -44,6 +44,8 @@ const Form = () => {
         name="lname"
         id="lname"
         placeholder="Enter Last Name"
+        value={form.lname}
+
       />
 
       <input
@@ -52,6 +54,8 @@ const Form = () => {
         name="age"
         id="age"
         placeholder="Age"
+        value={form.age}
+
       />
       <input
         type="email"
@@ -59,6 +63,8 @@ const Form = () => {
         name="email"
         id="email"
         placeholder="Enter Email"
+        value={form.email}
+
       />
       <input
         type="number"
@@ -66,10 +72,13 @@ const Form = () => {
         name="phone"
         id="phone"
         placeholder="Enter Number"
+        value={form.phone}
+
       />
 
-      <button onClick={Submit}>Submit</button>
+      <button onClick={()=>Submit()}>Submit</button>
     </div>
+
   );
 };
 

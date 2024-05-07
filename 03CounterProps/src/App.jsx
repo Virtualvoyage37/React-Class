@@ -3,18 +3,18 @@ import Counter from "./Counter";
 import Form from "./Form";
 import UpdateData from "./UpdateData";
 import "./App.css";
+import TableData from "./TableData";
+import FormBox from "./FormBox";
 
 function App() {
+
   return (
     <div>
       {/* <Counter /> */}
-      <Form />
+<FormBox />
       <div className="card-box">
-        {/* <Card name="demo" work={"content Rwiter"} />
-        <Card name="deepak" />
-        <Card name />
-        <Card name="raju" /> */}
-        {/* <UpdateData /> */}
+        {/* <Card name="demo" work={"content Rwiter"} /> */}
+
       </div>
     </div>
   );
