@@ -1,9 +1,10 @@
 import "./App.css";
 import UserData from "./Props/UserData";
+import Syn from "./Syn";
 function App() {
   return (
     <>
-      <h1>Helloooooo</h1>
+      {/* <Syn /> */}
       <UserData />
     </>
   );
