@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: #000;
+  }
+  .input{
+
+  }
+
+}
+@layer components{
+
+
+  .flex-center{
+    @apply flex justify-center items-center ;
+  }
+  .btn{
+    @apply text-white font-semibold rounded-md bg-blue-700 py-2 px-5  ;
+
+  }
+  .input{
+    @apply  text-black rounded-md p-2 border-none focus:border-none focus:outline-none  h-[40px] ;
+  }
+}
