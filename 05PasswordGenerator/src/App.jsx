@@ -1,3 +1,4 @@
+import { useCallback, useEffect } from "react";
 import { useState } from "react";
 
 function App() {
@@ -6,13 +7,26 @@ function App() {
   const [numberAllow, setNumberAllow] = useState(false);
   const [charAllow, setCharAllow] = useState(false);
 
-  const PasswordGenerator = () => {
-    const pass = "";
-    const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  const PasswordGenerator = useCallback(() => {
+    let pass = "";
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     const chr = "!@#$%^&*-_+=[]{}~`";
     const num = "0123456789";
+    if (numberAllow) str += num;
+    if (charAllow) str += chr;
+    for (let i = 1; i <= length; i++) {
+      const newpass = Math.floor(Math.random() * str.length + 1);
+      pass += str.charAt(newpass + 1);
+    }
+    setPassword(pass);
+  }, [length, numberAllow, charAllow]);
 
+  useEffect(() => {
+    PasswordGenerator();
+  }, [length, numberAllow, charAllow]);
 
+  const CopyPassword = () => {
+    window.navigator.clipboard.writeText(Password);
   };
 
   return (
@@ -21,7 +35,9 @@ function App() {
         <h1 className="text-3xl font-bold ">Password Generator</h1>
         <div>
           <input type="text" className="input" value={Password} readOnly />
-          <button className="btn h-[40px]">Copy</button>
+          <button className="btn h-[40px]" onClick={() => CopyPassword()}>
+            Copy
+          </button>
         </div>
 
         <div className="flex-center gap-4">
