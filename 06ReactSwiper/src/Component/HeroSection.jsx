@@ -8,10 +8,11 @@ const HeroSection = () => {
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        navigation={{
-            prevEl: '.prev',
-            nextEl: '.next',
-          }}
+        // navigation={{
+        //     prevEl: '.prev',
+        //     nextEl: '.next',
+        //   }}
+        navigation={true}
         pagination={{ clickable: true }}
         modules={[Navigation, Pagination]}
       >
@@ -37,10 +38,10 @@ const HeroSection = () => {
           />
         </SwiperSlide>
 
-        <div className="flex justify-between items-center  px-5">
+        {/* <div className="flex justify-between items-center  px-5">
           <button className="prev">Priv--</button>
           <button className="next">--Next</button>
-        </div>
+        </div> */}
       </Swiper>
     </div>
   );

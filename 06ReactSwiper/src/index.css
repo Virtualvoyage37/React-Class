@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    .error{
+        @apply text-red-700 text-base ;
+    }
+}
