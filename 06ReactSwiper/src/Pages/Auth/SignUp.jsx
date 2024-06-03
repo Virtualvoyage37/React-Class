@@ -10,10 +10,17 @@ const initialvalues = {
 };
 
 const validationSchema = Yup.object({
-  fullname: Yup.string().required("Full name is required").length(4),
+  fullname: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  password: Yup.string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
+  confirm_password: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .required("Confirm Password is required"),
 });
 
-const SignUp = () => {
+const SignUp = ({setLogin}) => {
   // const Validation = (values) => {
   //   const errors = {};
 
@@ -42,7 +49,8 @@ const SignUp = () => {
   // };
 
   const HandleSubmit = (val) => {
-    console.log(val, "valllll");
+    localStorage.setItem("UserData", JSON.stringify(val));
+    setLogin('login')
   };
 
   return (
