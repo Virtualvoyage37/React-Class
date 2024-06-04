@@ -11,6 +11,19 @@ import { useState } from "react";
 function App() {
   const [login, setLogin] = useState("signup");
 
+  const [data, setData] = useState(null);
+
+  const FacthData = () => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => console.log("error...", err));
+  };
+
+  // console.log(data[0],"data"); 
+
+  FacthData();
+
   return (
     <>
       {login === "login" ? (
