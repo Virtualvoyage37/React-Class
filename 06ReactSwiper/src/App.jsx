@@ -7,10 +7,11 @@ import "swiper/css/pagination";
 import Login from "./Pages/Auth/Login";
 import SignUp from "./Pages/Auth/SignUp";
 import { useEffect, useState } from "react";
+import About from "./About";
 
 function App() {
   const [login, setLogin] = useState("signup");
-  const [data, setData] = useState(null);
+  // const [inputdata, setData] = useState(null);
   const [inputData, setInputData] = useState({
     name: "",
     email: "",
@@ -50,12 +51,9 @@ function App() {
     console.log("data...", data);
   };
 
-  // console.log("data.....", data);
-  // console.log("data.....", HandleSubmit());
-
   return (
     <>
-      <form onSubmit={HandleSubmit}>
+      {/* <form onSubmit={HandleSubmit}>
         <div>
           <label
             htmlFor="name"
@@ -112,15 +110,17 @@ function App() {
           className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           value="Submit"
         />
-      </form>
-
+      </form> */}
+      {/* 
       {login === "login" ? (
         <Login setLogin={setLogin} />
       ) : login === "home" ? (
         <Home />
       ) : (
         <SignUp setLogin={setLogin} />
-      )}
+      )} */}
+
+      <About />
     </>
   );
 }
