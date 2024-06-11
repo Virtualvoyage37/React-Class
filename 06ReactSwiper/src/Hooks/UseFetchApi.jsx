@@ -8,7 +8,6 @@ const useFetchApi = (url) => {
 
   useEffect(() => {
     const fetchdata = async () => {
-      console.log("fdfffff");
       try {
         const res = await axios.get(url);
         const apidata = await res?.data;
@@ -20,11 +19,9 @@ const useFetchApi = (url) => {
       }
     };
     fetchdata();
-    console.log("Rajuuuuuuu");
-    return { data, loading, error };
-
-
-  }, [url]);
+    
+    }, [url]);
+  return { data, loading, error };
 
   //   return <div>UseFetchApi</div>;
 };
