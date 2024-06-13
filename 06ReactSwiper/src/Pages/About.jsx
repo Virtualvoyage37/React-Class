@@ -1,5 +1,5 @@
 import React from "react";
-import useFetchApi from "./Hooks/UseFetchApi";
+import useFetchApi from "../Hooks/UseFetchApi";
 
 const About = () => {
   const { data, loading, error } = useFetchApi(
@@ -7,8 +7,7 @@ const About = () => {
   );
 
   console.log(data, "....data");
-  // console.log(loading, "....loading");
-  // console.log(error, "....error");
+
   return (
     <div>
       <h1>About US</h1>
