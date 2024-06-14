@@ -1,7 +1,10 @@
 import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 const Login = ({ setLogin }) => {
+  const navigate = useNavigate();
+
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
@@ -13,8 +16,9 @@ const Login = ({ setLogin }) => {
 
   const HandleLogin = (value) => {
     if (singup.email === value.email && singup.password === value.password) {
-      alert("User Login Succesfuly");
-      setLogin("home")
+      alert("User Login Succesfully");
+      // setLogin("home")
+      navigate("/");
     } else {
       alert("User Not Login");
     }
@@ -101,16 +105,16 @@ const Login = ({ setLogin }) => {
           </div>
         </Form>
       </Formik>
-
-      <p className="mt-10 text-center text-sm text-gray-500">
-        Not a member?
-        <a
-          href="#"
-          className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+      <div className="mt-10 text-center text-sm text-gray-500">
+        Create Account? 
+        <Link
+          className="pl-2 font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+          to="/signup"
         >
-          Start a 14 day free trial
-        </a>
-      </p>
+           SignUp
+        </Link>
+        .
+      </div>
     </div>
   );
 };

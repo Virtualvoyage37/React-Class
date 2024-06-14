@@ -1,6 +1,7 @@
 import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { Link, useNavigate } from "react-router-dom";
 
 const initialvalues = {
   fullname: "",
@@ -21,6 +22,10 @@ const validationSchema = Yup.object({
 });
 
 const SignUp = ({setLogin}) => {
+
+  const navigate = useNavigate();
+
+
   // const Validation = (values) => {
   //   const errors = {};
 
@@ -50,7 +55,9 @@ const SignUp = ({setLogin}) => {
 
   const HandleSubmit = (val) => {
     localStorage.setItem("UserData", JSON.stringify(val));
-    setLogin('login')
+    // setLogin('login')
+    navigate("/login")
+
   };
 
   return (
@@ -131,12 +138,12 @@ const SignUp = ({setLogin}) => {
 
           <div className="text-grey-dark mt-6">
             Already have an account?
-            <a
+            <Link
               className="no-underline border-b border-blue text-blue"
-              href="../login/"
+              to="/login"
             >
               Log in
-            </a>
+            </Link>
             .
           </div>
         </div>

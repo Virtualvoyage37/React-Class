@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const HeroSection = () => {
@@ -13,8 +13,14 @@ const HeroSection = () => {
         //     nextEl: '.next',
         //   }}
         navigation={true}
+        autoplay={
+          {
+            delay:5000,
+            disableOnInteraction:true
+          }
+        }
         pagination={{ clickable: true }}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, Autoplay]}
       >
         <SwiperSlide>
           <img
@@ -37,11 +43,11 @@ const HeroSection = () => {
             className="w-full h-[400px] object-cover"
           />
         </SwiperSlide>
-
-        {/* <div className="flex justify-between items-center  px-5">
+{/* 
+         <div className="flex justify-between items-center  px-5">
           <button className="prev">Priv--</button>
           <button className="next">--Next</button>
-        </div> */}
+        </div>  */}
       </Swiper>
     </div>
   );
