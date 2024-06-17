@@ -56,7 +56,7 @@ function App2() {
       {/* <form onSubmit={HandleSubmit}>
         <div>
           <label
-            htmlFor="name"
+            htmlhtmlFor="name"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             Name
@@ -66,7 +66,7 @@ function App2() {
               id="name"
               name="name"
               type="name"
-              // autocomplete="name"
+              // autoComplete="name"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               onChange={(e) =>
@@ -81,7 +81,7 @@ function App2() {
         </div>
         <div>
           <label
-            htmlFor="email"
+            htmlhtmlFor="email"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             Email address
@@ -91,7 +91,7 @@ function App2() {
               id="email"
               name="email"
               type="email"
-              // autocomplete="email"
+              // autoComplete="email"
               // required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               onChange={(e) =>

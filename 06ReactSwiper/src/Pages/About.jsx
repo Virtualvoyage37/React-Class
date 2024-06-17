@@ -6,7 +6,7 @@ const About = () => {
     "https://jsonplaceholder.typicode.com/posts"
   );
 
-  console.log(data, "....data");
+  // console.log(data, "....data");
 
   return (
     <div>

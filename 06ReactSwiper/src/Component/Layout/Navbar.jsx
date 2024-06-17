@@ -4,6 +4,13 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const [userMenu, setUserMenu] = useState(false);
 
+  const token = localStorage.getItem("token");
+  const HandleLogout = () => {
+    if (token) {
+      localStorage.setItem("token", false);
+    }
+  };
+
   return (
     <>
       <nav className="bg-gray-800">
@@ -176,6 +183,7 @@ const Navbar = () => {
                       role="menuitem"
                       tabindex="-1"
                       id="user-menu-item-2"
+                      onClick={HandleLogout}
                     >
                       Sign out
                     </a>
