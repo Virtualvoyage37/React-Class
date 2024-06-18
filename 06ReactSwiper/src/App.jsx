@@ -14,6 +14,7 @@ import SignUp from "./Pages/Auth/SignUp";
 import Navbar from "./Component/Layout/Navbar";
 import Footer from "./Component/Layout/Footer";
 import PrivteRoute from "./Utils/PrivteRoute";
+import ProductDetails from "./Pages/ProductDetails";
 
 const App = () => {
   return (
@@ -22,11 +23,13 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<PrivteRoute />}>
-            <Route path="/home" element={<Home />} />
+            <Route path="" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="blog" element={<Blog />} />
             <Route path="services" element={<Services />} />
             <Route path="/*" element={<NotFound />} />
+            <Route path="productdetail/:prodId" element={<ProductDetails />} />
+
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

@@ -8,6 +8,7 @@ const Navbar = () => {
   const HandleLogout = () => {
     if (token) {
       localStorage.setItem("token", false);
+      window.location.reload();
     }
   };
 

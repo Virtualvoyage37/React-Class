@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 const PrivteRoute = () => {
   const token = localStorage.getItem("token");
 
-  return <>{token ? <Outlet /> : <Navigate to={"/login"} />}</>;
+  return <>{token === "true" ? <Outlet /> : <Navigate to={"/login"} />}</>;
 };
 
 export default PrivteRoute;
