@@ -25,9 +25,9 @@ const Home = () => {
 
       <div className="grid grid-cols-4 gap-2 gap-y-5">
         {data?.map((val, index) => (
-          <>
-            <Product productdata={val}/>
-          </>
+          <div key={index}>
+            <Product productdata={val} />
+          </div>
         ))}
       </div>
     </div>
