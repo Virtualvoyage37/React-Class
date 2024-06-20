@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Swiper CSS
 import "swiper/css";
@@ -16,6 +16,8 @@ import Footer from "./Component/Layout/Footer";
 import PrivteRoute from "./Utils/PrivteRoute";
 import ProductDetails from "./Pages/ProductDetails";
 
+const BlogPage =  lazy(()=> import("./Pages/Blog"))
+
 const App = () => {
   return (
     <>
@@ -25,11 +27,18 @@ const App = () => {
           <Route path="/" element={<PrivteRoute />}>
             <Route path="" element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path="blog" element={<Blog />} />
+            <Route
+              path="blog"
+              // lazy={() => import("./Pages/Blog")}
+              element={<BlogPage />}
+            />
+            {/* <Route path="blog" element={<BlogPage />} /> */}
             <Route path="services" element={<Services />} />
             <Route path="/*" element={<NotFound />} />
-            <Route path="productdetail/:productId" element={<ProductDetails />} />
-
+            <Route
+              path="productdetail/:productId"
+              element={<ProductDetails />}
+            />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

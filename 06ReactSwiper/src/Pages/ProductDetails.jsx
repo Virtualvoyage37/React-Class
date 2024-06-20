@@ -3,11 +3,6 @@ import { useParams } from "react-router-dom";
 
 const productDetails = () => {
   const { productId } = useParams();
-
-   
-  const para = useParams();
-console.log("para...",para);
-
   const [productDetail, setproductDetail] = useState(null);
 
   useEffect(() => {
@@ -16,7 +11,6 @@ console.log("para...",para);
       .then((data) => setproductDetail(data));
   }, [productId]);
 
-  console.log("productDetail?..", productDetail);
 
   return (
     <section class="text-gray-700 body-font overflow-hidden bg-white">
