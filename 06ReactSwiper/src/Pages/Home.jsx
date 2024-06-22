@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "../Component/HeroSection";
 import Navbar from "../Component/Layout/Navbar";
 import Product from "../Component/Product";
+import Cart from "../Component/Cart";
 
-const Home = () => {
+const Home = ({ showCart, setShowCart }) => {
   const [data, setData] = useState(null);
   const [loader, setLoader] = useState(true);
 
@@ -16,6 +17,21 @@ const Home = () => {
       });
   }, []);
 
+  // cart All Data
+
+  const [cartData, setCartData] = useState([]);
+
+  const AddItems = (data) => {
+    setCartData([...cartData, data]);
+    setShowCart(true);
+  };
+
+  const RemoveItems = (productId) => {
+    const updateitems = cartData.filter((item) => item.id !== productId);
+    setCartData(updateitems);
+  };
+
+  
   return (
     <div>
       <HeroSection />
@@ -26,10 +42,22 @@ const Home = () => {
       <div className="grid grid-cols-4 gap-2 gap-y-5">
         {data?.map((val, index) => (
           <div key={index}>
-            <Product productdata={val} />
+            <Product
+              productdata={val}
+              setShowCart={setShowCart}
+              AddItems={AddItems}
+            />
           </div>
         ))}
       </div>
+
+      {showCart && (
+        <Cart
+          cartData={cartData}
+          setShowCart={setShowCart}
+          RemoveItems={RemoveItems}
+        />
+      )}
     </div>
   );
 };

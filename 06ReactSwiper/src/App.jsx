@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Swiper CSS
 import "swiper/css";
@@ -16,16 +16,21 @@ import Footer from "./Component/Layout/Footer";
 import PrivteRoute from "./Utils/PrivteRoute";
 import ProductDetails from "./Pages/ProductDetails";
 
-const BlogPage =  lazy(()=> import("./Pages/Blog"))
+const BlogPage = lazy(() => import("./Pages/Blog"));
 
 const App = () => {
+  const [showCart, setShowCart] = useState(false);
+
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Navbar setShowCart={setShowCart} />
         <Routes>
           <Route path="/" element={<PrivteRoute />}>
-            <Route path="" element={<Home />} />
+            <Route
+              path=""
+              element={<Home showCart={showCart} setShowCart={setShowCart} />}
+            />
             <Route path="about" element={<About />} />
             <Route
               path="blog"

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Product = ({ productdata }) => {
+const Product = ({ productdata, setShowCart, AddItems }) => {
   return (
     <div class="relative flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
       <a
@@ -75,9 +75,9 @@ const Product = ({ productdata }) => {
             </span>
           </div>
         </div>
-        <Link 
-          to={`productdetail/${productdata.id}`}
+        <button
           class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          onClick={() => AddItems(productdata)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const Product = ({ productdata }) => {
             />
           </svg>
           Add to cart
-        </Link>
+        </button>
       </div>
     </div>
   );
