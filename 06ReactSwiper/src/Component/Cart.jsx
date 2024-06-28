@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 const Cart = ({ cartData, setShowCart, RemoveItems }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
-  console.log("totalPrice", totalPrice);
+  const [qut, setQut] = useState({
+    qty: 1,
+  });
+
+  // console.log("totalPrice", totalPrice);
 
   useEffect(() => {
     const total = cartData.map((data) => data?.price);
@@ -30,6 +34,13 @@ const Cart = ({ cartData, setShowCart, RemoveItems }) => {
 
     // console.log("totaldata...", totaldata);
   }, [cartData]);
+
+  const AddQty = (productprice, qty) => {
+    // const subtotal = cartData.map((data) => data?.price);
+
+    setTotalPrice((priv) => priv + productprice);
+    setQut(qut.qty + 1);
+  };
 
   return (
     <div
@@ -109,7 +120,18 @@ const Cart = ({ cartData, setShowCart, RemoveItems }) => {
                                   </p>
                                 </div>
                                 <div class="flex flex-1 items-end justify-between text-sm">
-                                  <p class="text-gray-500">Qty 1</p>
+                                  <div className="flex justify-center items-center gap-2">
+                                    <button className="text-2xl">-</button>
+                                    <p class="text-gray-500">Qty {qut?.qty}</p>
+                                    <button
+                                      className="text-2xl"
+                                      onClick={() =>
+                                        AddQty(productdata?.price, qut.qty)
+                                      }
+                                    >
+                                      +
+                                    </button>
+                                  </div>
 
                                   <div class="flex">
                                     <button
